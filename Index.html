@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen PC Parts - Premium Computer Components</title>
+    <style>
+        :root {
+            --primary: #007bff;
+            --secondary: #6c757d;
+            --dark: #343a40;
+            --light: #f8f9fa;
+            --danger: #dc3545;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f4f4f4;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--dark);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cart-icon {
+            margin-left: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/500') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #0069d9;
+        }
+        
+        /* Categories Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-image {
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-image img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .category-content p {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-rating {
+            display: flex;
+            margin-bottom: 15px;
+            color: #ffc107;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Services Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 32px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--primary);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #212529;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #a4a4a4;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #2c3237;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #2c3237;
+            padding-top: 30px;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    NextGen<span>PC</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="cart-icon">
+                        <span>🛒</span>
+                        <span class="cart-count">0</span>
+                    </li>
+                </ul>
+                <div class="mobile-menu">
+                    ☰
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Build Your Dream PC</h1>
+            <p>Premium computer parts with expert advice for gaming, professional work, and everyday computing.</p>
+            <a href="#products" class="btn">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Product Categories</h2>
+                <p>Browse our extensive range of high-quality computer components</p>
+            </div>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="/api/placeholder/250/200" alt="CPUs">
+                    </div>
+                    <div class="category-content">
+                        <h3>CPUs</h3>
+                        <p>Latest processors from Intel and AMD</p>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="/api/placeholder/250/200" alt="Graphics Cards">
+                    </div>
+                    <div class="category-content">
+                        <h3>Graphics Cards</h3>
+                        <p>High-performance GPUs for gaming and design</p>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="/api/placeholder/250/200" alt="Memory">
+                    </div>
+                    <div class="category-content">
+                        <h3>Memory</h3>
+                        <p>RAM and storage solutions</p>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="/api/placeholder/250/200" alt="Motherboards">
+                    </div>
+                    <div class="category-content">
+                        <h3>Motherboards</h3>
+                        <p>The foundation of your build</p>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section" id="products" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Check out our most popular computer components</p>
+            </div>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #000; display: flex; justify-content: center; align-items: center; padding: 10px;">
+                        <svg width="260" height="180" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- CPU Base -->
+                            <rect x="250" y="100" width="300" height="300" rx="20" fill="#333" />
+                            
+                            <!-- CPU Die -->
+                            <rect x="300" y="150" width="200" height="200" fill="#111" />
+                            
+                            <!-- CPU IHS (Integrated Heat Spreader) -->
+                            <rect x="290" y="140" width="220" height="220" rx="5" fill="#aaa" />
+                            
+                            <!-- CPU Logo and Text -->
+                            <circle cx="400" cy="220" r="60" fill="#e21b23" />
+                            <text x="370" y="230" font-family="Arial" font-size="24" font-weight="bold" fill="white">AMD</text>
+                            <text x="355" y="320" font-family="Arial" font-size="18" font-weight="bold" fill="#111">RYZEN 9</text>
+                            
+                            <!-- CPU Pins Grid (simplified) -->
+                            <g fill="#999">
+                                <rect x="290" y="370" width="220" height="10" />
+                                <!-- Pin rows -->
+                                <g fill="#666">
+                                    <rect x="300" y="370" width="2" height="10" />
+                                    <rect x="310" y="370" width="2" height="10" />
+                                    <rect x="320" y="370" width="2" height="10" />
+                                    <rect x="330" y="370" width="2" height="10" />
+                                    <rect x="340" y="370" width="2" height="10" />
+                                    <rect x="350" y="370" width="2" height="10" />
+                                    <rect x="360" y="370" width="2" height="10" />
+                                    <rect x="370" y="370" width="2" height="10" />
+                                    <rect x="380" y="370" width="2" height="10" />
+                                    <rect x="390" y="370" width="2" height="10" />
+                                    <rect x="400" y="370" width="2" height="10" />
+                                    <rect x="410" y="370" width="2" height="10" />
+                                    <rect x="420" y="370" width="2" height="10" />
+                                    <rect x="430" y="370" width="2" height="10" />
+                                    <rect x="440" y="370" width="2" height="10" />
+                                    <rect x="450" y="370" width="2" height="10" />
+                                    <rect x="460" y="370" width="2" height="10" />
+                                    <rect x="470" y="370" width="2" height="10" />
+                                    <rect x="480" y="370" width="2" height="10" />
+                                    <rect x="490" y="370" width="2" height="10" />
+                                    <rect x="500" y="370" width="2" height="10" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3>AMD Ryzen 9 5900X</h3>
+                        <div class="product-rating">
+                            ★★★★★
+                        </div>
+                        <p>12-core, 24-thread processor with impressive gaming performance.</p>
+                        <div class="product-price">$449.99</div>
+                        <div class="product-actions">
+                            <a href="#" class="btn">Details</a>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #000; display: flex; justify-content: center; align-items: center; padding: 10px;">
+                        <svg width="260" height="180" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- GPU Card Base -->
+                            <rect x="100" y="100" width="600" height="200" rx="10" fill="#333" />
+                            
+                            <!-- Cooling Fans -->
+                            <circle cx="250" cy="200" r="60" fill="#222" stroke="#444" stroke-width="5" />
+                            <circle cx="400" cy="200" r="60" fill="#222" stroke="#444" stroke-width="5" />
+                            <circle cx="550" cy="200" r="60" fill="#222" stroke="#444" stroke-width="5" />
+                            
+                            <!-- Fan Blades -->
+                            <g fill="#333">
+                                <!-- Fan 1 -->
+                                <path d="M250 140 L270 190 L250 200 L230 190 Z" />
+                                <path d="M310 200 L260 220 L250 200 L260 180 Z" />
+                                <path d="M250 260 L230 210 L250 200 L270 210 Z" />
+                                <path d="M190 200 L240 180 L250 200 L240 220 Z" />
+                                
+                                <!-- Fan 2 -->
+                                <path d="M400 140 L420 190 L400 200 L380 190 Z" />
+                                <path d="M460 200 L410 220 L400 200 L410 180 Z" />
+                                <path d="M400 260 L380 210 L400 200 L420 210 Z" />
+                                <path d="M340 200 L390 180 L400 200 L390 220 Z" />
+                                
+                                <!-- Fan 3 -->
+                                <path d="M550 140 L570 190 L550 200 L530 190 Z" />
+                                <path d="M610 200 L560 220 L550 200 L560 180 Z" />
+                                <path d="M550 260 L530 210 L550 200 L570 210 Z" />
+                                <path d="M490 200 L540 180 L550 200 L540 220 Z" />
+                            </g>
+                            
+                            <!-- RTX Branding -->
+                            <rect x="130" y="120" width="80" height="30" rx="5" fill="#76b900" />
+                            <text x="140" y="142" font-family="Arial" font-size="20" font-weight="bold" fill="white">RTX</text>
+                            
+                            <!-- Power Connectors -->
+                            <rect x="100" y="150" width="20" height="40" fill="#222" />
+                            <rect x="100" y="200" width="20" height="40" fill="#222" />
+                            
+                            <!-- IO Shield -->
+                            <rect x="650" y="130" width="50" height="140" fill="#222" />
+                            <rect x="660" y="140" width="30" height="15" fill="#444" /> <!-- HDMI -->
+                            <rect x="660" y="165" width="30" height="15" fill="#444" /> <!-- DP -->
+                            <rect x="660" y="190" width="30" height="15" fill="#444" /> <!-- DP -->
+                            <rect x="660" y="215" width="30" height="15" fill="#444" /> <!-- DP -->
+                            
+                            <!-- Heatsink visible from side -->
+                            <rect x="100" y="100" width="600" height="10" fill="#555" />
+                            <rect x="100" y="290" width="600" height="10" fill="#555" />
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3>NVIDIA RTX 4080</h3>
+                        <div class="product-rating">
+                            ★★★★★
+                        </div>
+                        <p>Next-gen gaming graphics with real-time ray tracing.</p>
+                        <div class="product-price">$1,199.99</div>
+                        <div class="product-actions">
+                            <a href="#" class="btn">Details</a>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #000; display: flex; justify-content: center; align-items: center; padding: 10px;">
+                        <svg width="260" height="180" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- NVMe SSD Base -->
+                            <rect x="200" y="150" width="400" height="100" rx="5" fill="#111" />
+                            
+                            <!-- PCIe Connector -->
+                            <rect x="200" y="240" width="400" height="10" fill="#333" />
+                            <g fill="#666">
+                                <rect x="220" y="240" width="20" height="10" />
+                                <rect x="260" y="240" width="20" height="10" />
+                                <rect x="300" y="240" width="20" height="10" />
+                                <rect x="340" y="240" width="20" height="10" />
+                                <rect x="380" y="240" width="20" height="10" />
+                                <rect x="420" y="240" width="20" height="10" />
+                                <rect x="460" y="240" width="20" height="10" />
+                                <rect x="500" y="240" width="20" height="10" />
+                                <rect x="540" y="240" width="20" height="10" />
+                                <rect x="580" y="240" width="20" height="10" />
+                            </g>
+                            
+                            <!-- Controller Chip -->
+                            <rect x="260" y="170" width="80" height="60" fill="#333" />
+                            
+                            <!-- NAND Flash Chips -->
+                            <rect x="370" y="170" width="60" height="60" fill="#333" />
+                            <rect x="450" y="170" width="60" height="60" fill="#333" />
+                            <rect x="530" y="170" width="60" height="60" fill="#333" />
+                            
+                            <!-- Samsung Logo and Text -->
+                            <rect x="220" y="120" width="150" height="20" rx="10" fill="#1428a0" />
+                            <text x="235" y="135" font-family="Arial" font-size="14" font-weight="bold" fill="white">SAMSUNG</text>
+                            
+                            <!-- Product Label -->
+                            <text x="220" y="210" font-family="Arial" font-size="16" font-weight="bold" fill="white">990 PRO</text>
+                            <text x="310" y="210" font-family="Arial" font-size="12" fill="#aaa">2TB NVMe</text>
+                            
+                            <!-- Heat Spreader -->
+                            <rect x="220" y="150" width="360" height="5" fill="#444" />
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3>Samsung 990 Pro 2TB</h3>
+                        <div class="product-rating">
+                            ★★★★★
+                        </div>
+                        <p>Ultra-fast NVMe SSD for lightning-quick load times.</p>
+                        <div class="product-price">$219.99</div>
+                        <div class="product-actions">
+                            <a href="#" class="btn">Details</a>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #000; display: flex; justify-content: center; align-items: center; padding: 10px;">
+                        <svg width="260" height="180" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- RAM Module Base -->
+                            <rect x="200" y="100" width="400" height="200" rx="5" fill="#333" />
+                            
+                            <!-- Heat Spreader -->
+                            <rect x="210" y="110" width="380" height="180" rx="3" fill="#222" />
+                            
+                            <!-- RGB Light Bar -->
+                            <rect x="210" y="110" width="380" height="30" rx="3" fill="#111">
+                                <animate attributeName="fill" values="#ff0000;#ff7700;#ffff00;#00ff00;#0000ff;#8a2be2;#ff00ff;#ff0000" dur="5s" repeatCount="indefinite" />
+                            </rect>
+                            
+                            <!-- RAM Chips -->
+                            <g fill="#111">
+                                <rect x="230" y="160" width="60" height="40" rx="2" />
+                                <rect x="310" y="160" width="60" height="40" rx="2" />
+                                <rect x="390" y="160" width="60" height="40" rx="2" />
+                                <rect x="470" y="160" width="60" height="40" rx="2" />
+                                
+                                <rect x="230" y="220" width="60" height="40" rx="2" />
+                                <rect x="310" y="220" width="60" height="40" rx="2" />
+                                <rect x="390" y="220" width="60" height="40" rx="2" />
+                                <rect x="470" y="220" width="60" height="40" rx="2" />
+                            </g>
+                            
+                            <!-- Corsair Logo -->
+                            <polygon points="400,190 380,170 420,170" fill="#aaa" />
+                            <rect x="390" y="177" width="20" height="10" fill="#aaa" />
+                            
+                            <!-- PCB Edge Connector -->
+                            <rect x="200" y="300" width="400" height="10" fill="#111" />
+                            <g fill="#ccc">
+                                <rect x="210" y="300" width="15" height="10" />
+                                <rect x="235" y="300" width="15" height="10" />
+                                <rect x="260" y="300" width="15" height="10" />
+                                <rect x="285" y="300" width="15" height="10" />
+                                <rect x="310" y="300" width="15" height="10" />
+                                <rect x="335" y="300" width="15" height="10" />
+                                <rect x="360" y="300" width="15" height="10" />
+                                <rect x="385" y="300" width="15" height="10" />
+                                <rect x="410" y="300" width="15" height="10" />
+                                <rect x="435" y="300" width="15" height="10" />
+                                <rect x="460" y="300" width="15" height="10" />
+                                <rect x="485" y="300" width="15" height="10" />
+                                <rect x="510" y="300" width="15" height="10" />
+                                <rect x="535" y="300" width="15" height="10" />
+                                <rect x="560" y="300" width="15" height="10" />
+                                <rect x="585" y="300" width="15" height="10" />
+                            </g>
+                            
+                            <!-- Product Label -->
+                            <text x="260" y="270" font-family="Arial" font-size="18" font-weight="bold" fill="white">VENGEANCE RGB</text>
+                            <text x="485" y="270" font-family="Arial" font-size="18" font-weight="bold" fill="white">32GB</text>
+                        </svg>
+                    </div>
+                    <div class="product-content">
+                        <h3>Corsair Vengeance RGB 32GB</h3>
+                        <div class="product-rating">
+                            ★★★★☆
+                        </div>
+                        <p>High-performance DDR5 RAM with RGB lighting.</p>
+                        <div class="product-price">$159.99</div>
+                        <div class="product-actions">
+                            <a href="#" class="btn">Details</a>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We offer comprehensive computer building and maintenance services</p>
+            </div>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Custom PC Building</h3>
+                    <p>Let our experts build your dream PC with premium components tailored to your needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>PC Upgrades</h3>
+                    <p>Enhance your existing system with targeted upgrades that maximize performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Diagnostics & Repair</h3>
+                    <p>Professional troubleshooting and repair services to keep your PC running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from satisfied customers who trusted us with their PC needs</p>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial active">
+                    <div class="testimonial-text">
+                        "NextGen PC helped me build my dream gaming rig. Their knowledge and recommendations were spot on, and the performance is incredible!"
+                    </div>
+                    <div class="testimonial-author">
+                        - Alex Johnson, Gaming Enthusiast
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "As a video editor, I needed a powerful workstation. The team at NextGen PC understood my requirements and built me a system that handles 4K editing with ease."
+                    </div>
+                    <div class="testimonial-author">
+                        - Sarah Miller, Professional Video Editor
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "The customer service is exceptional. They guided me through every step of choosing components for my first PC build, and I couldn't be happier with the results."
+                    </div>
+                    <div class="testimonial-author">
+                        - Michael Thompson, First-time Builder
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest product releases, tech news, and exclusive deals.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>NextGen PC is a premium computer parts retailer with over 10 years of experience in the industry. We pride ourselves on quality products, expert advice, and exceptional customer service.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p>📍 123 Tech Street, Silicon Valley, CA</p>
+                        <p>📞 (555) 123-4567</p>
+                        <p>✉️ info@nextgenpc.com</p>
+                        <div class="social-links">
+                            <a href="#">f</a>
+                            <a href="#">t</a>
+                            <a href="#">in</a>
+                            <a href="#">ig</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Store Hours</h3>
+                    <p>Monday - Friday: 9am - 8pm</p>
+                    <p>Saturday: 10am - 6pm</p>
+                    <p>Sunday: 12pm - 5pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NextGen PC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Cart Functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 0;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+                
+                // Animation effect
+                button.textContent = '✓ Added';
+                button.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    button.textContent = 'Add to Cart';
+                    button.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.style.display = '';
+                }
+            });
+        });
+        
+        // Newsletter form handling
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input');
+            
+            if (emailInput.value.trim() !== '') {
+                // Simulate form submission
+                const button = newsletterForm.querySelector('button');
+                const originalText = button.textContent;
+                
+                button.textContent = 'Subscribed!';
+                button.style.backgroundColor = '#28a745';
+                emailInput.value = '';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
